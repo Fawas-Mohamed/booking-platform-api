@@ -52,11 +52,11 @@ async function bootstrap() {
     swaggerOptions: { persistAuthorization: true },
   });
 
-  const port = configService.get<number>('port') ?? 3000;
-  await app.listen(port);
-
-  logger.log(`Application is running on: http://localhost:${port}`);
-  logger.log(`Swagger docs available at: http://localhost:${port}/api/docs`);
+  const port = process.env.PORT || configService.get<number>('port') || 3000;
+  await app.listen(Number(port), '0.0.0.0');
+  
+  logger.log(`Application started on port ${port}`);
+  logger.log(`Swagger available at: /api/docs`);
 }
 
 bootstrap();
