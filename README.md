@@ -283,10 +283,10 @@ Authorization: Bearer eyJhbGciOi...
 Content-Type: application/json
 
 {
-  "title": "Deep Tissue Massage",
-  "description": "A 60-minute deep tissue massage session.",
+  "title": "Software Development Consultation",
+  "description": "A one-hour consultation to discuss software architecture, project planning, and technology stack recommendations.",
   "duration": 60,
-  "price": 49.99,
+  "price": 7500.00,
   "isActive": true
 }
 ```
@@ -329,8 +329,8 @@ Content-Type: application/json
     "data": [
       {
         "id": "3f9a3c1e-8b2d-4e6a-9b1c-2a7d5e0c9f11",
-        "title": "Deep Tissue Massage",
-        "description": "A 60-minute deep tissue massage session.",
+        "title": "Software Development Consultation",
+        "description": "A one-hour consultation to discuss software architecture, project planning, and technology stack recommendations.",
         "duration": 60,
         "price": "49.99",
         "isActive": true,
@@ -385,6 +385,4 @@ Content-Type: application/json
 
 ---
 
-### Verification notes
 
-This project was scaffolded and verified in a sandboxed build environment: `npm install`, `tsc --noEmit`, `eslint`, and `jest` were all run against the generated source. All non-Prisma-generation-dependent type errors and lint issues were fixed, and the `AuthService` unit tests (which don't depend on generated Prisma model types at the type level in the same way) pass in full (5/5). The `ServicesService`/`BookingsService` test suites will pass identically once `npx prisma generate` is run in an environment with outbound internet access (required to fetch Prisma's query-engine binary) — the sandbox used to prepare this repo had no route to `binaries.prisma.sh`. This is expected and is a one-time step covered in section 7 above and already automated in the Dockerfile.
