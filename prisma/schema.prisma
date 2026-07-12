@@ -1,0 +1,64 @@
+// Prisma schema for the Booking Platform API
+// Run `npx prisma migrate dev --name init` to create the database tables.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Service {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  duration    Int // duration in minutes
+  price       Decimal   @db.Decimal(10, 2)
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+
+  @@map("services")
+}
+
+model Booking {
+  id            String        @id @default(uuid())
+  customerName  String
+  customerEmail String
+  customerPhone String
+  serviceId     String
+  service       Service       @relation(fields: [serviceId], references: [id], onDelete: Restrict)
+  bookingDate   DateTime      @db.Date
+  bookingTime   String // stored as "HH:mm" (24h) to keep date/time comparisons simple
+  status        BookingStatus @default(PENDING)
+  notes         String?
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+
+  // Prevents two bookings for the same service at the exact same date/time (Business Rule 6)
+  @@unique([serviceId, bookingDate, bookingTime], name: "uniqueServiceSlot")
+  @@index([status])
+  @@index([customerEmail])
+  @@map("bookings")
+}
