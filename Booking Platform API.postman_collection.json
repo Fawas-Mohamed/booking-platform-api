@@ -1,0 +1,518 @@
+{
+  "info": {
+    "_postman_id": "c8f6fe81-8aa6-4cc8-8d64-dcd156cca228",
+    "name": "Booking Platform API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51711110",
+    "_collection_link": "https://go.postman.co/collection/51711110-c8f6fe81-8aa6-4cc8-8d64-dcd156cca228?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Fawas\",\r\n  \"email\": \"fawas1@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"fawas1@gmail.com\",\r\n  \"password\": \"Password123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/users/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "users",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Services",
+      "item": [
+        {
+          "name": "Create Service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Software Development Consultation\",\r\n  \"description\": \"A one-hour consultation to discuss software architecture, project planning, and technology stack recommendations.\",\r\n  \"duration\": 60,\r\n  \"price\": 15000.00,\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/services",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Services",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/services?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "services"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Service By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/services/cbf7aa0b-0e79-4e2a-a9bf-681df4727292",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "services",
+                "cbf7aa0b-0e79-4e2a-a9bf-681df4727292"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"DevOps & CI/CD Pipeline Setup\",\r\n  \"description\": \"Configure GitHub Actions, Docker, and automated deployment pipelines for software projects.\",\r\n  \"duration\": 240,\r\n  \"price\": 25000.00,\r\n  \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/services/cbf7aa0b-0e79-4e2a-a9bf-681df4727292",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "services",
+                "cbf7aa0b-0e79-4e2a-a9bf-681df4727292"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/services/cbf7aa0b-0e79-4e2a-a9bf-681df4727292",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "services",
+                "cbf7aa0b-0e79-4e2a-a9bf-681df4727292"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bookings",
+      "item": [
+        {
+          "name": "Create Booking",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"customerName\": \"Fawas\",\r\n  \"customerEmail\": \"fawas1@example.com\",\r\n  \"customerPhone\": \"+94753837488\",\r\n  \"serviceId\": \"3a27f4e3-0f3f-40c5-ab76-93c7c9eaa477\",\r\n  \"bookingDate\": \"2026-07-13\",\r\n  \"bookingTime\": \"14:30\",\r\n  \"notes\": \"Please call 10 minutes before arrival.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/bookings",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Bookings",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/bookings?page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Booking By ID",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/bookings/e93598c3-cb00-44b5-9600-c0da3cea2751",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings",
+                "e93598c3-cb00-44b5-9600-c0da3cea2751"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Booking Status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"status\": \"CONFIRMED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/bookings/e93598c3-cb00-44b5-9600-c0da3cea2751/status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings",
+                "e93598c3-cb00-44b5-9600-c0da3cea2751",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Cancel Booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3001/bookings/e93598c3-cb00-44b5-9600-c0da3cea2751/cancel",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings",
+                "e93598c3-cb00-44b5-9600-c0da3cea2751",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Filter by status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI0NGY5OTY0NS01M2EzLTQyYjItOWYyYy1jZGQ5ZGIwMDhiNzAiLCJlbWFpbCI6ImZhd2FzMUBnbWFpbC5jb20iLCJpYXQiOjE3ODM4NzUyNTgsImV4cCI6MTc4Mzk2MTY1OH0.MmXMYOORIHpK4hHOOhko8RLGPE8jW4-dkgAz3Z8Vf_I",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3001/bookings?status=CONFIRMED&page=1&limit=10",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3001",
+              "path": [
+                "bookings"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "CONFIRMED"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
